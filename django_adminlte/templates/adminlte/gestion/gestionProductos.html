@@ -1,0 +1,101 @@
+{% extends 'adminlte/base.html' %}
+
+
+{% block content %}
+{% block tablaGestion %}
+
+
+<div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Gestion de Productos</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+          <div class="row">
+                <div class="col-sm-6">
+                    <div id="example1_filter" class="dataTables_filter">
+                        <label>
+                            <input type="search" class="form-control input-sm" placeholder="Buscar Producto" aria-controls="example1">
+                        </label>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+        <thead>
+        <tr role="row">
+            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 174px;">
+                Producto
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 215px;">
+                Stock Inicial
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 190px;">
+                Compras
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 149px;">
+                Existencia Final
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 107px;">
+                Costo en Unidades
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 107px;">
+                Precio 
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 107px;">
+                Costo
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr role="row" class="odd">
+            {% for producto in listaProductos %}
+                <td class="sorting_1">{{ producto.producto.nombreProducto }}</td>
+                <td>{{ producto.stockInicial }} </td>
+                <td>{{ producto.compras }}</td>
+                <td>{{ producto.existenciaFinal }}</td>
+                <td>{{ producto.costoFinal }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.costo }}</td>
+            {% endfor %}
+
+      </table>
+    </div>
+</div>
+<div class="row">
+<div class="col-sm-5">
+
+</div>
+<div class="col-sm-7">
+
+        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+            <ul class="pagination">
+                <li class="paginate_button active">
+                    <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">
+                        1
+                    </a>
+                </li>
+                <li class="paginate_button ">
+                    <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">
+                        2
+                    </a>
+                </li>
+                <li class="paginate_button ">
+                    <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">
+                        3
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+    <!-- /.box-body -->
+  </div>
+
+{% endblock %}
+
+{% endblock %}
