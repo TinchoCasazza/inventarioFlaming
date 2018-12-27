@@ -15,7 +15,6 @@ class Producto(models.Model):
     nombreProducto = models.CharField(blank=False, max_length=60)
     precioProducto = models.FloatField(null=True)
     proovedor = models.ForeignKey(Proovedor, on_delete=models.CASCADE)
-
     def __string__(self):
         return (self.nombreProducto)
 
@@ -23,6 +22,7 @@ class StockProducto(models.Model):
     producto = models.ForeignKey(Producto, on_delete= models.CASCADE)
     fechaReposicion = models.DateField(default = datetime.date.today, editable = True)
     cantidadStock = models.IntegerField(null=False, default=0)
+    precioStock = models.FloatField(null=False, default=0)
 
 class GestionGanancias(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
